@@ -1,6 +1,6 @@
 package database
 
-import "github.com/marc-town/blog-go/web-api/api/domain"
+import "github.com/marc-town/blog-go/web-api/app/domain"
 
 type ArticleRepository struct {
 	SqlHandler
@@ -13,7 +13,7 @@ func (repo *ArticleRepository) FindById(id int) (article domain.Article, err err
 	return
 }
 
-func (repo *ArticleRepository) FindAll() (article domain.Articles, err error) {
+func (repo *ArticleRepository) FindAll() (articles domain.Articles, err error) {
 	if err = repo.Find(&articles).Error; err != nil {
 		return
 	}

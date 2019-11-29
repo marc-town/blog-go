@@ -2,10 +2,11 @@ package infrastructure
 
 import (
 	"fmt"
+
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 
-	"github.com/marc-town/blog-go/web-api/api/database"
+	"github.com/marc-town/blog-go/web-api/app/interfaces/database"
 )
 
 type SqlHandler struct {
@@ -13,11 +14,11 @@ type SqlHandler struct {
 }
 
 const (
-	Dialect = "mysql"
-	DBUser = "dev"
-	DBPass = "Password_01"
+	Dialect    = "mysql"
+	DBUser     = "dev"
+	DBPass     = "Password_01"
 	DBProtocol = "tcp(127.0.0.1:3306)"
-	DBName = "blog_app_db"
+	DBName     = "blog_app_db"
 )
 
 func NewSqlHandler() database.SqlHandler {
@@ -33,7 +34,7 @@ func NewSqlHandler() database.SqlHandler {
 }
 
 func (handler *SqlHandler) Find(out interface{}, where ...interface{}) *gorm.DB {
-	return handler.Conn.Find(sql, where...)
+	return handler.Conn.Find(out, where...)
 }
 
 func (handler *SqlHandler) Exec(sql string, values ...interface{}) *gorm.DB {

@@ -1,9 +1,9 @@
 package domain
 
-type Article []Article
+type Articles []Article
 
 type Article struct {
-	ID int
-	TITLE string
+	ID      int
+	TITLE   string
 	CONTENT string
 }

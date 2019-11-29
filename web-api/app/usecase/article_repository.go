@@ -1,6 +1,6 @@
 package usecase
 
-import "github.com/marc-town/blog-go/web-api/api/domain"
+import "github.com/marc-town/blog-go/web-api/app/domain"
 
 type ArticleRepository interface {
 	FindById(id int) (domain.Article, error)

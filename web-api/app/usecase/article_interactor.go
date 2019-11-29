@@ -1,6 +1,6 @@
 package usecase
 
-import "github.com/marc-town/blog-go/web-api/api/domain"
+import "github.com/marc-town/blog-go/web-api/app/domain"
 
 type ArticleInteractor struct {
 	ArticleRepository ArticleRepository
@@ -11,7 +11,7 @@ func (interactor *ArticleInteractor) ArticleById(id int) (article domain.Article
 	return
 }
 
-func (interactor *ArticleInteractor) Article() (articles domain.Articles, err error) {
+func (interactor *ArticleInteractor) Articles() (articles domain.Articles, err error) {
 	articles, err = interactor.ArticleRepository.FindAll()
 	return
 }
@@ -26,7 +26,7 @@ func (interactor *ArticleInteractor) Update(a domain.Article) (article domain.Ar
 	return
 }
 
-func (interactor *ArticleInteractor) DeleteById(a domain.Article) (article domain.Article, err error) {
-	article, err = interactor.ArticleRepository.FindById(a)
+func (interactor *ArticleInteractor) DeleteById(a domain.Article) (err error) {
+	err = interactor.ArticleRepository.DeleteById(a)
 	return
 }
