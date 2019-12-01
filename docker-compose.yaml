@@ -1,28 +1,28 @@
-version: '3'
+version: '3.5'
 services:
   web-api:
     build: web-api
     container_name: api-server
-    links:
-      - rdb
     ports:
       - "1323:1323"
     environment:
       TZ: "Asia/Tokyo"
     volumes:
-      - ./web-api/app:/app
-    command: go run main.go
+      - ./web-api/app:/go/src/github.com/marc-town/blog-go/web-api/app
+    command: realize start --run --no-config
   rdb:
-    image: mysql:5.7
-    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    build: rdb
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
       - ./rdb/mysql-data:/var/lib/mysql
-      - ./rdb/my.cnf:/etc/mysql/conf.d/my.cnf
       - ./rdb/initdb.d:/docker-entrypoint-initdb.d
+      - ./rdb/conf.d:/etc/mysql/conf.d
+      - ./rdb/log:/var/log/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: dev
-      MYSQL_PASSWORD: dev
+      MYSQL_DATABASE: blog_app_db
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: docker
       TZ: 'Asia/Tokyo'
     ports:
         - "3306:3306"
