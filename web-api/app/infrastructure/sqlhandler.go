@@ -13,24 +13,29 @@ type SqlHandler struct {
 	Conn *gorm.DB
 }
 
-const (
-	Dialect    = "mysql"
-	DBUser     = "dev"
-	DBPass     = "Password_01"
-	DBProtocol = "tcp(127.0.0.1:3306)"
-	DBName     = "blog_app_db"
-)
-
 func NewSqlHandler() database.SqlHandler {
-	connectTemplate := "%s:%s@%s/%s"
-	connect := fmt.Sprintf(connectTemplate, DBUser, DBPass, DBProtocol, DBName)
-	conn, err := gorm.Open(Dialect, connect)
+	conn, err := gorm.Open(GetDBConfig())
 	if err != nil {
 		panic(err.Error)
 	}
+	conn.LogMode(true)
 	sqlHandler := new(SqlHandler)
 	sqlHandler.Conn = conn
 	return sqlHandler
+}
+
+func GetDBConfig() (string, string) {
+	DBMS := "mysql"
+	USER := "root"
+	PASS := "root"
+	PROTOCOL := "tcp(rdb)"
+	DBNAME := "blog_app_db"
+	OPTION := "charset=utf8&parseTime=True&loc=Local"
+
+	connectTemplate := "%s:%s@%s/%s?%s"
+	CONNECT := fmt.Sprintf(connectTemplate, USER, PASS, PROTOCOL, DBNAME, OPTION)
+
+	return DBMS, CONNECT
 }
 
 func (handler *SqlHandler) Find(out interface{}, where ...interface{}) *gorm.DB {
