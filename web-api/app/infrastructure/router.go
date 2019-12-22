@@ -20,21 +20,22 @@ func Init() {
 	e.Use(middleware.Recover())
 	e.Use(middleware.CORS())
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
-		AllowOrigins: []string{"https://labstack.com", "https://labstack.net"},
+		AllowOrigins: []string{"*"},
 		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAccept},
+		AllowMethods: []string{http.MethodGet, http.MethodPut, http.MethodPost, http.MethodDelete},
 	}))
 
 	// Sample
-	e.GET("/ping", func(c echo.Context) error {
+	e.GET("/api/ping", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Hello, GOlang!")
 	})
 
 	// Routting endpoint
-	e.GET("/articles", func(c echo.Context) error { return articlesController.Index(c) })
-	e.GET("/article/:id", func(c echo.Context) error { return articlesController.Show(c) })
-	e.POST("/article", func(c echo.Context) error { return articlesController.Create(c) })
-	e.PUT("/article/:id", func(c echo.Context) error { return articlesController.Save(c) })
-	e.DELETE("/article/:id", func(c echo.Context) error { return articlesController.Delete(c) })
+	e.GET("/api/articles", func(c echo.Context) error { return articlesController.Index(c) })
+	e.GET("/api/article/:id", func(c echo.Context) error { return articlesController.Show(c) })
+	e.POST("/api/article", func(c echo.Context) error { return articlesController.Create(c) })
+	e.PUT("/api/article/:id", func(c echo.Context) error { return articlesController.Save(c) })
+	e.DELETE("/api/article/:id", func(c echo.Context) error { return articlesController.Delete(c) })
 
 	// Start erver
 	e.Logger.Fatal(e.Start(":1323"))

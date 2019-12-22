@@ -1,6 +1,9 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <ul>
+      <li v-for="article of articles" :key="article.id">{{ article.title }}</li>
+    </ul>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -35,6 +38,30 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data () {
+    return {
+      articles: []
+    }
+  },
+  methods: {
+    init: function() {
+      this.fetchData()
+    },
+    fetchData: async function() {
+      const uri = 'articles'
+      return this.$axios.get(uri)
+        .then(res => {
+          this.articles = res.data
+          alert(res.data)
+        })
+        .catch(err => {
+          alert(err)
+        });
+    }
+  },
+  created: function() {
+    this.init()
   }
 }
 </script>
