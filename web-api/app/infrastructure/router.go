@@ -31,10 +31,10 @@ func Init() {
 
 	// Routting endpoint
 	e.GET("/articles", func(c echo.Context) error { return articlesController.Index(c) })
-	e.GET("/article:id", func(c echo.Context) error { return articlesController.Show(c) })
+	e.GET("/article/:id", func(c echo.Context) error { return articlesController.Show(c) })
 	e.POST("/article", func(c echo.Context) error { return articlesController.Create(c) })
-	e.PUT("/article:id", func(c echo.Context) error { return articlesController.Save(c) })
-	e.DELETE("/article:id", func(c echo.Context) error { return articlesController.Delete(c) })
+	e.PUT("/article/:id", func(c echo.Context) error { return articlesController.Save(c) })
+	e.DELETE("/article/:id", func(c echo.Context) error { return articlesController.Delete(c) })
 
 	// Start erver
 	e.Logger.Fatal(e.Start(":1323"))
