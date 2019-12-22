@@ -57,8 +57,10 @@ func (controller *ArticleController) Create(c echo.Context) (err error) {
 }
 
 func (controller *ArticleController) Save(c echo.Context) (err error) {
+	id, _ := strconv.Atoi(c.Param("id"))
 	a := domain.Article{}
 	c.Bind(&a)
+	a.ID = id
 	article, err := controller.Interactor.Update(a)
 	if err != nil {
 		c.JSON(500, NewError(err))

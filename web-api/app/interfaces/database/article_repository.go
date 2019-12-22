@@ -29,7 +29,7 @@ func (repo *ArticleRepository) Store(a domain.Article) (article domain.Article, 
 }
 
 func (repo *ArticleRepository) Update(a domain.Article) (article domain.Article, err error) {
-	if err = repo.Find(&a).Error; err != nil {
+	if err = repo.Save(&a).Error; err != nil {
 		return
 	}
 	article = a
@@ -37,7 +37,7 @@ func (repo *ArticleRepository) Update(a domain.Article) (article domain.Article,
 }
 
 func (repo *ArticleRepository) DeleteById(article domain.Article) (err error) {
-	if err = repo.Find(&article).Error; err != nil {
+	if err = repo.Delete(&article).Error; err != nil {
 		return
 	}
 	return
