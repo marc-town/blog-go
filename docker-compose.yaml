@@ -1,7 +1,8 @@
 version: '3.5'
 services:
   web-api:
-    build: web-api
+    build:
+      context: web-api
     container_name: api-server
     ports:
       - "1323:1323"
@@ -10,6 +11,20 @@ services:
     volumes:
       - ./web-api/app:/go/src/github.com/marc-town/blog-go/web-api/app
     command: realize start --run --no-config
+
+  web-gui:
+    build:
+      context: web-gui
+    container_name: web-server
+    links:
+      - web-api
+    ports:
+      - "80:80"
+    environment:
+      TZ: "Asia/Tokyo"
+    volumes:
+      - ./logs/front-end:/var/log/nginx
+
   rdb:
     build: rdb
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci

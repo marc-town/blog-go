@@ -2,3 +2,4 @@ rdb/mysql-data
 rdb/log
 web-api/app/.vscode/
 web-api/app/__debug_bin
+logs
