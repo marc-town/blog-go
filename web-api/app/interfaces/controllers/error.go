@@ -1,6 +1,7 @@
 package controllers
 
 type Error struct {
+	Code    string
 	Message string
 }
 

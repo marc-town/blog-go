@@ -30,7 +30,7 @@ func (controller *ArticleController) Show(c echo.Context) (err error) {
 		c.JSON(500, NewError(err))
 		return
 	}
-	c.JSON(200, article)
+	c.JSON(200, SetResponse(article))
 	return
 }
 
@@ -40,7 +40,7 @@ func (controller *ArticleController) Index(c echo.Context) (err error) {
 		c.JSON(500, NewError(err))
 		return
 	}
-	c.JSON(200, articles)
+	c.JSON(200, SetResponse(articles))
 	return
 }
 
@@ -52,7 +52,7 @@ func (controller *ArticleController) Create(c echo.Context) (err error) {
 		c.JSON(500, NewError(err))
 		return
 	}
-	c.JSON(201, article)
+	c.JSON(201, SetResponse(article))
 	return
 }
 
@@ -66,7 +66,7 @@ func (controller *ArticleController) Save(c echo.Context) (err error) {
 		c.JSON(500, NewError(err))
 		return
 	}
-	c.JSON(201, article)
+	c.JSON(201, SetResponse(article))
 	return
 }
 
@@ -80,6 +80,6 @@ func (controller *ArticleController) Delete(c echo.Context) (err error) {
 		c.JSON(500, NewError(err))
 		return
 	}
-	c.JSON(200, article)
+	c.JSON(200, SetResponse(article))
 	return
 }
