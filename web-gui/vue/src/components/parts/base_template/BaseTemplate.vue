@@ -1,10 +1,11 @@
 <template src="./base_template.html"></template>
 <script>
-// import page parts
+// import parts
 // import Sidebar from '@/components/parts/sidebar/Sidebar'
-// import Navbar from '@/components/parts/navbar/Navbar'
+import Header from '@/components/parts/header/Header'
+import Footer from '@/components/parts/footer/Footer'
 export default {
-  components: {},
+  components: { Header, Footer },
   data () {
     return {
     }
