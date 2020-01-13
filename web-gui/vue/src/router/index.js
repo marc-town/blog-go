@@ -5,12 +5,12 @@ import Router from 'vue-router'
 import ArticleRoute from './article-router'
 
 // import components
-import HelloWorld from '@/components/HelloWorld'
+import Index from '@/components/pages/Index'
 
 Vue.use(Router)
 
 const routes = [
-  { path: '/', component: HelloWorld },
+  { path: '/', component: Index },
   { ...ArticleRoute }
 ]
 

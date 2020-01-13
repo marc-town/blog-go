@@ -1,15 +1,15 @@
 import BaseTemplate from '@/components/parts/base_template/BaseTemplate'
 
-import Index from '@/components/pages/article/Index'
+import Article from '@/components/pages/article/Article'
 import Create from '@/components/pages/article/create/Create'
 
 export default {
-  path: 'article',
+  path: '/article',
   component: BaseTemplate,
   children: [
     {
       path: '',
-      component: Index
+      component: Article
     },
     {
       path: 'create',
