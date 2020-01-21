@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 // import routers
 import ArticleRoute from './article-router'
+import DraftRoute from './drafts-router'
 
 // import components
 import Index from '@/components/pages/Index'
@@ -11,7 +12,8 @@ Vue.use(Router)
 
 const routes = [
   { path: '/', component: Index },
-  { ...ArticleRoute }
+  { ...ArticleRoute },
+  { ...DraftRoute }
 ]
 
 export default new Router({

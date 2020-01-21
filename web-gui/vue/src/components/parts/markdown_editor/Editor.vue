@@ -1,10 +1,10 @@
-<template src="./create.html"></template>
+<template src="./editor.html"></template>
 <script>
-import Editor from '@/components/parts/markdown_editor/Editor'
 export default {
-  components: { Editor },
+  components: {},
   data () {
     return {
+      contents: ""
     }
   },
   mixins: [],
@@ -16,5 +16,5 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-  @import "./create.scss";
+  @import "./editor.scss";
 </style>

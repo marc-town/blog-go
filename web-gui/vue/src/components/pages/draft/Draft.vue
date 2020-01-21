@@ -1,8 +1,7 @@
-<template src="./create.html"></template>
+<template src="./draft.html"></template>
 <script>
-import Editor from '@/components/parts/markdown_editor/Editor'
 export default {
-  components: { Editor },
+  components: {},
   data () {
     return {
     }
@@ -16,5 +15,5 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-  @import "./create.scss";
+  @import "./draft.scss";
 </style>
