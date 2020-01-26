@@ -1,24 +1,54 @@
-<div>
-  <el-menu
-    :default-active="activeIndex"
-    mode="horizontal"
-    @select="handleSelect"
-    active-text-color="#ff504b"
-    router>
-    <el-menu-item index="/">My Blog App</el-menu-item>
-    <el-menu-item index="/article">Article</el-menu-item>
-    <el-menu-item index="3" disabled>About Me</el-menu-item>
-    <el-menu-item index="4" disabled>Contact</el-menu-item>
-    <el-submenu index="5">
-      <template slot="title">
-        <i class="el-icon-user-solid"></i>
-      </template>
-      <el-menu-item index="/staff/profile">個人設定</el-menu-item>
-      <el-submenu index="5-1">
-        <template slot="title">aaaaa</template>
-        <el-menu-item index="/staff">bbbbb</el-menu-item>
-      </el-submenu>
-      <el-menu-item index="/logout">ログアウト</el-menu-item>
-    </el-submenu>
-  </el-menu>
+<div class="header-vue-component">
+  <header>
+    <nav style="left: 0px;">
+      <div class="main-menu">
+        <router-link to="/">
+          <h1 class="logo">MARK</h1>
+        </router-link>
+        <ul class="primary-list">
+          <router-link class="primary1" tag="li" to="/article">
+            <div class="primary-link">Articles</div>
+            <div class="secondary-wide">
+              <div class="secondary-inner">
+                <ul class="second-children" style="left: 24.5391px;">
+                  <li>
+                    <div class="second-child">会社情報</div>
+                    <ul class="third-list">
+                      <li>
+                        <div>会社概要</div>
+                      </li>
+                      <li>
+                        <div>主要役員</div>
+                      </li>
+                      <li>
+                        <div>カンパニー体制</div>
+                      </li>
+                      <li>
+                        <div>沿革</div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </router-link>
+          <li class="primary2">
+            <div class="primary-link">サービス</div>
+          </li>
+          <li class="primary3">
+            <div class="primary-link">PR</div>
+          </li>
+          <li class="primary4">
+            <div class="primary-link">IR</div>
+          </li>
+          <li class="primary5">
+            <div class="primary-link">CSR</div>
+          </li>
+          <li class="primary6">
+            <div class="primary-link">採用情報</div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 </div>

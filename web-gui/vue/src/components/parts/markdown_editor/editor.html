@@ -1,13 +1,19 @@
-<div class="editor">
-  <div class="preview">
+<div class="editor-content">
+  <div class="editor-body">
     <mavon-editor v-model="contents" language="en" />
   </div>
   <div class="editor-footer">
-    <b-button-group class="submit-button-group btn-primary">
-      <b-dropdown right split text="投稿する">
-        <b-dropdown-item>下書き保存</b-dropdown-item>
-        <b-dropdown-item>公開する</b-dropdown-item>
-      </b-dropdown>
-    </b-button-group>
+    <div class="editor-save">
+      <div class="editor-save-submit">
+        <div class="editor-submit">
+          <b-button-group class="submit-button-group">
+            <b-dropdown right split text="投稿する" variant="success">
+              <b-dropdown-item>下書き保存</b-dropdown-item>
+              <b-dropdown-item>公開する</b-dropdown-item>
+            </b-dropdown>
+          </b-button-group>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

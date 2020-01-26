@@ -1,7 +1,8 @@
 <template src="./draft.html"></template>
 <script>
+import Header from '@/components/parts/header/Header'
 export default {
-  components: {},
+  components: { Header },
   data () {
     return {
     }
