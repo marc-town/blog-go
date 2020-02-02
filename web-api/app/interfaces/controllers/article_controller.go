@@ -4,7 +4,7 @@ import (
 	"strconv"
 
 	"github.com/labstack/echo"
-	"github.com/marc-town/blog-go/web-api/app/domain"
+	"github.com/marc-town/blog-go/web-api/app/domain/model"
 	"github.com/marc-town/blog-go/web-api/app/interfaces/database"
 	"github.com/marc-town/blog-go/web-api/app/usecase"
 )
@@ -45,7 +45,7 @@ func (controller *ArticleController) Index(c echo.Context) (err error) {
 }
 
 func (controller *ArticleController) Create(c echo.Context) (err error) {
-	a := domain.Article{}
+	a := model.Article{}
 	c.Bind(&a)
 	article, err := controller.Interactor.Add(a)
 	if err != nil {
@@ -58,7 +58,7 @@ func (controller *ArticleController) Create(c echo.Context) (err error) {
 
 func (controller *ArticleController) Save(c echo.Context) (err error) {
 	id, _ := strconv.Atoi(c.Param("id"))
-	a := domain.Article{}
+	a := model.Article{}
 	c.Bind(&a)
 	a.ID = id
 	article, err := controller.Interactor.Update(a)
@@ -72,7 +72,7 @@ func (controller *ArticleController) Save(c echo.Context) (err error) {
 
 func (controller *ArticleController) Delete(c echo.Context) (err error) {
 	id, _ := strconv.Atoi(c.Param("id"))
-	article := domain.Article{
+	article := model.Article{
 		ID: id,
 	}
 	err = controller.Interactor.DeleteById(article)

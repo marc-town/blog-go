@@ -60,6 +60,7 @@ github.com/labstack/gommon v0.3.0/go.mod h1:MULnywXg0yavhxWKc+lOruYdAhDwPK9wf0OL
 github.com/lib/pq v1.1.1/go.mod h1:5WUZQaWbwv1U+lTReE5YruASi9Al49XbQIvNi/34Woo=
 github.com/marc-town/blog-go v0.0.0-20191124055824-cf6d4ff7768c h1:pEhVrAVfacPQj20rMGGhOp8Lx+9/8eu73qRB8oj4F28=
 github.com/marc-town/blog-go v0.0.0-20191128142401-acc2a52961ce h1:aCQGiNpFXnC2zFWkALjgi0DIf3ty6Fn6LhA2MoI6InA=
+github.com/marc-town/blog-go v0.0.0-20200130145542-5ccfee260ef1 h1:1wpBJyia96OC9jQYP0oYEbNPhSBWzIbflK5W+KH9F9I=
 github.com/mattn/go-colorable v0.1.2 h1:/bC9yWikZXAL9uJdulbSfyVNIR3n3trXl+v8+1sx8mU=
 github.com/mattn/go-colorable v0.1.2/go.mod h1:U0ppj6V5qS13XJ6of8GYAs25YV2eR4EVcfRqFIhoBtE=
 github.com/mattn/go-isatty v0.0.8/go.mod h1:Iq45c/XA43vh69/j3iqttzPXn0bhXyGjM0Hdxcsrc5s=
