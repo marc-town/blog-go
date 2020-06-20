@@ -36,8 +36,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: blog_app_db
-      MYSQL_USER: docker
-      MYSQL_PASSWORD: docker
+      MYSQL_USER: apluser
+      MYSQL_PASSWORD: apluser
       TZ: 'Asia/Tokyo'
     ports:
         - "3306:3306"

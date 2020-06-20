@@ -10,3 +10,5 @@ require (
 	github.com/labstack/gommon v0.3.0 // indirect
 	github.com/valyala/fasttemplate v1.1.0 // indirect
 )
+// realize が go get できなかった対応
+replace gopkg.in/urfave/cli.v2 => github.com/urfave/cli/v2 v2.2.0
