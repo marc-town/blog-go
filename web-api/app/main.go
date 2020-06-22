@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/marc-town/blog-go/web-api/app/infrastructure"
+	"github.com/marc-town/blog-go/web-api/app/infrastructure/router"
 )
 
 func main() {
-	infrastructure.Init()
+	router.Init()
 }
