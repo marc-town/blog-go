@@ -9,23 +9,23 @@ type ArticleInteractor struct {
 	ArticleRepository repository.ArticleRepository
 }
 
-func (interactor *ArticleInteractor) ArticleById(id int) (article model.Article, err error) {
-	article, err = interactor.ArticleRepository.FindById(id)
+func (interactor *ArticleInteractor) ArticleById(id int) (project model.Article, err error) {
+	project, err = interactor.ArticleRepository.FindById(id)
 	return
 }
 
-func (interactor *ArticleInteractor) Articles() (articles model.Articles, err error) {
-	articles, err = interactor.ArticleRepository.FindAll()
+func (interactor *ArticleInteractor) Articles() (projects model.Articles, err error) {
+	projects, err = interactor.ArticleRepository.FindAll()
 	return
 }
 
-func (interactor *ArticleInteractor) Add(a model.Article) (article model.Article, err error) {
-	article, err = interactor.ArticleRepository.Store(a)
+func (interactor *ArticleInteractor) Add(a model.Article) (project model.Article, err error) {
+	project, err = interactor.ArticleRepository.Store(a)
 	return
 }
 
-func (interactor *ArticleInteractor) Update(a model.Article) (article model.Article, err error) {
-	article, err = interactor.ArticleRepository.Update(a)
+func (interactor *ArticleInteractor) Update(a model.Article) (project model.Article, err error) {
+	project, err = interactor.ArticleRepository.Update(a)
 	return
 }
 

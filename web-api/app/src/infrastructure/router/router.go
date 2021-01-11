@@ -33,6 +33,7 @@ func Init() {
 
 	// Router
 	HistoryRouter(g)
+	HistoryRouter(g)
 
 	// Start erver
 	e.Logger.Fatal(e.Start(":1323"))
